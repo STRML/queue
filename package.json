@@ -1,6 +1,6 @@
 {
-  "name": "queue",
-  "version": "4.4.0",
+  "name": "queue-simple",
+  "version": "1.0.0",
   "description": "asynchronous function queue with adjustable concurrency",
   "keywords": [
     "queue",
@@ -12,24 +12,25 @@
     "concurrency",
     "concurrent"
   ],
-  "dependencies": {
-    "inherits": "~2.0.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "browserify": "^5.9.1",
     "coveralls": "^2.11.2",
+    "eslint": "^4.6.1",
+    "eslint-plugin-mocha": "^4.11.0",
+    "intelli-espower-loader": "^1.0.1",
     "istanbul": "^0.3.2",
-    "standard": "^8.6.0",
-    "tape": "^2.14.0"
+    "mocha": "^3.5.2",
+    "power-assert": "^1.4.4"
   },
   "scripts": {
-    "test": "standard && node test",
-    "test-browser": "standard && browserify test/index.js > test/bundle.js && echo \"open test/index.html in your browser\"",
-    "travis": "standard && istanbul cover test --report lcovonly && cat coverage/lcov.info | coveralls",
+    "test": "mocha --require intelli-espower-loader test/",
+    "test-browser": "npm run lint && browserify test/index.js > test/bundle.js && echo \"open test/index.html in your browser\"",
+    "travis": "npm run lint && istanbul cover test --report lcovonly && cat coverage/lcov.info | coveralls",
     "example": "node example",
-    "lint": "standard"
+    "lint": "eslint ."
   },
-  "repository": "https://github.com/jessetane/queue.git",
-  "author": "Jesse Tane <jesse.tane@gmail.com>",
+  "repository": "https://github.com/strml/queue.git",
+  "author": "Samuel Reed <samuel.trace.reed@gmail.com",
   "license": "MIT"
 }
